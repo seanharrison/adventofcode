@@ -29,7 +29,7 @@ find2020pair values =
 
 find2020triple values = 
     if not (null bc)
-        then [a] ++ bc
+        then a : bc
         else find2020triple (tail values)
     where a = head values
           bc = find2020bc (tail values) a
