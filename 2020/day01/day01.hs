@@ -11,8 +11,6 @@ main =
         print theTriple
         print (product theTriple)
 
-        return values
-
 getInputValues = 
     do
         inh <- openFile "input.txt" ReadMode
