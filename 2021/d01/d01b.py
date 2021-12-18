@@ -49,16 +49,16 @@ import sys
 
 filepath = sys.argv[1] if len(sys.argv) > 1 else "input"
 increases = 0
-prev = None
+previous = None
 stack = []
 with open(filepath) as f:
     for line in f:
         stack.append(int(line.strip()))
         if len(stack) == 3:
             val = sum(stack)
-            if prev and val > prev:
+            if previous and val > previous:
                 increases += 1
-            prev = val
+            previous = val
             stack.pop(0)
 
 print('increases =', increases)

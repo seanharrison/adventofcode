@@ -4,8 +4,8 @@
 ; - Even if the file is 3TB, this method will still work.
 
 (defparameter filepath (or (cadr *posix-argv*) "input"))
-(defparameter previous nil)
 (defparameter increases 0)
+(defparameter previous nil)
 (defparameter stack ())
 
 (with-open-file (input filepath :direction :input)
