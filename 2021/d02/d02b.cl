@@ -1,0 +1,18 @@
+(let ((x 0)
+      (y 0)
+      (aim 0))
+  (with-open-file (input "input" :direction :input)
+    (loop for line = (read-line input nil)
+          while line
+          do (let* ((values (uiop:split-string line))
+                    (head (first values))
+                    (dist (parse-integer (second values))))
+               (cond ((equal head "forward")
+                      (setq x (+ x dist))
+                      (setq y (+ y (* dist aim))))
+                     ((equal head "up")
+                      (setq aim (- aim dist)))
+                     ((equal head "down")
+                      (setq aim (+ aim dist)))))))
+
+  (print `(:x ,x :y ,y :aim ,aim :x*y ,(* x y))))

@@ -14,10 +14,10 @@
         do (setq stack (cons (parse-integer line) stack))
            (if (>= (length stack) 3)
                (progn
-                (setq stack `(
-                    ,(car stack)
-                    ,(cadr stack)
-                    ,(caddr stack)))
+                (setq stack
+                      `(,(first stack)
+                        ,(second stack)
+                        ,(third stack)))
                 (let ((value (reduce '+ stack)))
                   (if (and previous (> value previous))
                       (incf increases))
