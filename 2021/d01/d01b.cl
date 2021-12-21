@@ -11,7 +11,7 @@
 (with-open-file (input filepath :direction :input)
   (loop for line = (read-line input nil)
         while line
-        do (setq stack (cons (parse-integer line) stack))
+        do (push (parse-integer line) stack)
            (if (>= (length stack) 3)
                (progn
                 (setq stack
